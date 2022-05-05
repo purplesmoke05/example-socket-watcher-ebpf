@@ -1,0 +1,24 @@
+[package]
+name = "example-socket-watcher-ebpf"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+aya-bpf = { git = "https://github.com/aya-rs/aya", branch = "main" }
+example-socket-watcher-common = { path = "../example-socket-watcher-common" }
+
+[[bin]]
+name = "example-socket-watcher"
+path = "src/main.rs"
+
+[profile.dev]
+opt-level = 2
+debug = 1
+overflow-checks = false
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+
+[workspace]
+members = []
